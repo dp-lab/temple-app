@@ -15,7 +15,7 @@ const services = [
 ];
 
 const TempleServices = () => {
-    const { id: templeId } = useParams();
+    /*const { id: templeId } = useParams();*/
 
     return (
         <div>
