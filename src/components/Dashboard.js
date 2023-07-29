@@ -14,6 +14,8 @@ import TempleDetails from "./TempleDetails";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTemples } from "../redux/actions/templeActions";
 
+import "./Dashboard.css"; // Assuming you have a Dashboard.css file for the Dashboard component
+
 const Dashboard = () => {
     const dispatch = useDispatch();
     const temples = useSelector((state) => state || []);
@@ -65,7 +67,24 @@ const Dashboard = () => {
                     ))}
                 </Row>
             </Container>
-            <Modal show={!!templeDetails} onHide={hideTempleDetails}>
+            <Modal
+                show={!!templeDetails}
+                onHide={hideTempleDetails}
+                size="lg" // large size
+                dialogAs={({ className, children, ...props }) => (
+                    <Modal.Dialog
+                        {...props}
+                        className={className}
+                        style={{
+                            width: "80%" /* or whatever you want */,
+                            maxWidth:
+                                "none" /* necessary to not limit width by Bootstrap */,
+                        }}
+                    >
+                        {children}
+                    </Modal.Dialog>
+                )}
+            >
                 <Modal.Header closeButton>
                     <Modal.Title>Temple Details</Modal.Title>
                 </Modal.Header>
