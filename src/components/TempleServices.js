@@ -2,7 +2,6 @@
 
 import React from "react";
 import { ListGroup } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 // Here's a dummy list of services.
