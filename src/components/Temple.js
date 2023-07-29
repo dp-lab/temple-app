@@ -3,10 +3,10 @@ import { Card } from "react-bootstrap";
 
 const Temple = ({ temple, onShowDetails }) => {
     return (
-        <Card className="mb-4" onClick={() => onShowDetails(temple)}>
+        <Card className="mb-3" onClick={() => onShowDetails(temple)}>
             <Card.Img
                 variant="top"
-                src={temple.imageUrl || "https://via.placeholder.com/150"}
+                src={temple.imageUrl || "https://via.placeholder.com/300"}
             />
             <Card.Body>
                 <Card.Title>{temple.name}</Card.Title>

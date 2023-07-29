@@ -56,7 +56,7 @@ const Dashboard = () => {
             <Container>
                 <Row>
                     {filteredTemples.map((temple) => (
-                        <Col md={4} className="g-4" key={temple.id}>
+                        <Col md={3} className="g-4" key={temple.id}>
                             <Temple
                                 temple={temple}
                                 onShowDetails={showTempleDetails}
