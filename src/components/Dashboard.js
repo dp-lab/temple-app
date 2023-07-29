@@ -14,6 +14,7 @@ import Sidebar from "./Sidebar";
 import TempleList from "./TempleList";
 
 function Dashboard() {
+    
     const handleSearch = (event) => {
         event.preventDefault();
         // Handle search functionality here
@@ -29,7 +30,7 @@ function Dashboard() {
                         placeholder="Search Temple"
                         className="mr-sm-2"
                     />
-                    <Button variant="outline-success" type="submit">
+                    <Button variant="outline-success" type="submit" >
                         Search
                     </Button>
                 </Form>

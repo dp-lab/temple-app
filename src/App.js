@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import store from "./redux/store";
 import Dashboard from "./components/Dashboard";
 import TempleServices from "./components/TempleServices";
+import RatingAndReview from "./components/RatingAndReview";
 
 function App() {
     return (
@@ -16,10 +17,8 @@ function App() {
                 <div className="App">
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
-                        <Route
-                            path="/temple/:id"
-                            element={<TempleServices />}
-                        />
+                        <Route path="/temple/:id" element={<TempleServices />}/>
+                        <Route path="/rate-and-review" element={<RatingAndReview/>}/>
                     </Routes>
                 </div>
             </Router>
