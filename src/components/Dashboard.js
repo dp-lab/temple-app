@@ -1,59 +1,104 @@
-// src/components/Dashboard.js
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
-    Container,
     Navbar,
-    Form,
-    FormControl,
+    Container,
+    Row,
+    Col,
+    Image,
+    Modal,
     Button,
-    Nav,
 } from "react-bootstrap";
-import Footer from "./Footer";
-import Sidebar from "./Sidebar";
-import TempleList from "./TempleList";
+import Search from "./Search";
+import Temple from "./Temple";
+import TempleDetails from "./TempleDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTemples } from "../redux/actions/templeActions";
 
-function Dashboard() {
-    
-    const handleSearch = (event) => {
-        event.preventDefault();
-        // Handle search functionality here
+import "./Dashboard.css"; // Assuming you have a Dashboard.css file for the Dashboard component
+
+const Dashboard = () => {
+    const dispatch = useDispatch();
+    const temples = useSelector((state) => state || []);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [templeDetails, setTempleDetails] = useState(null);
+
+    useEffect(() => {
+        dispatch(fetchTemples());
+    }, [dispatch]);
+
+    const filteredTemples = temples.filter((temple) =>
+        temple.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    const showTempleDetails = (temple) => {
+        setTempleDetails(temple);
+    };
+
+    const hideTempleDetails = () => {
+        setTempleDetails(null);
     };
 
     return (
         <>
-            <Navbar bg="light" expand="lg" fixed="top">
-                <Navbar.Brand href="#">Temple Marketplace</Navbar.Brand>
-                <Form inline className="mx-auto" onSubmit={handleSearch}>
-                    <FormControl
-                        type="text"
-                        placeholder="Search Temple"
-                        className="mr-sm-2"
+            <Navbar bg="light" className="px-3">
+                <Navbar.Brand href="#home">
+                    <Image
+                        src="https://via.placeholder.com/200x200"
+                        alt="Logo"
+                        height="30"
+                        width="30"
+                        style={{ marginRight: "10px" }}
                     />
-                    <Button variant="outline-success" type="submit" >
-                        Search
-                    </Button>
-                </Form>
-                <Nav>
-                    <Nav.Link href="#">Profile</Nav.Link>
-                    <Nav.Link href="#">Logout</Nav.Link>
-                </Nav>
+                    Temple Dashboard
+                </Navbar.Brand>
+                <Navbar.Collapse className="justify-content-end">
+                    <Search onSearch={setSearchTerm} />
+                </Navbar.Collapse>
             </Navbar>
-
-            <Sidebar>
-                <h3>Categories</h3>
-                {/* Add categories here */}
-            </Sidebar>
-
             <Container>
-                <TempleList />
+                <Row>
+                    {filteredTemples.map((temple) => (
+                        <Col md={3} className="g-4" key={temple.id}>
+                            <Temple
+                                temple={temple}
+                                onShowDetails={showTempleDetails}
+                            />
+                        </Col>
+                    ))}
+                </Row>
             </Container>
-
-            <Footer>
-                <p>&copy; {new Date().getFullYear()} Temple Marketplace</p>
-            </Footer>
+            <Modal
+                show={!!templeDetails}
+                onHide={hideTempleDetails}
+                size="lg" // large size
+                dialogAs={({ className, children, ...props }) => (
+                    <Modal.Dialog
+                        {...props}
+                        className={className}
+                        style={{
+                            width: "80%" /* or whatever you want */,
+                            maxWidth:
+                                "none" /* necessary to not limit width by Bootstrap */,
+                        }}
+                    >
+                        {children}
+                    </Modal.Dialog>
+                )}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Temple Details</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {templeDetails && <TempleDetails temple={templeDetails} />}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={hideTempleDetails}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
-}
+};
 
 export default Dashboard;

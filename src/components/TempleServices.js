@@ -1,5 +1,3 @@
-// src/components/TempleServices.js
-
 import React from "react";
 import { ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";

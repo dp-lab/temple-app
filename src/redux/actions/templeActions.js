@@ -1,12 +1,108 @@
 export const fetchTemples = () => (dispatch) => {
-    // In a real-world app, this would make a fetch request to an API
-    // We're simulating a delay with setTimeout
     setTimeout(() => {
         const temples = [
-            { id: 1, name: "Temple 1" },
-            { id: 2, name: "Temple 2" },
-            // more temples
+            {
+                id: 1,
+                name: "Temple of Dawn",
+                deity: "Buddha",
+                address: "Bangkok, Thailand",
+                imageUrls: [
+                    "https://via.placeholder.com/300",
+                    "https://via.placeholder.com/300",
+                ],
+                established: 1782,
+                festivals: ["Visakha Bucha Day", "Magha Puja Day"],
+                timings: "Monday to Sunday: 8 AM - 6 PM",
+                specialRituals: "Evening Chanting Ritual",
+                architecture: "Khmer architectural style",
+                dressCode: "Conservative dress required",
+                facilities: ["Free Guided Tours", "Parking", "Restrooms"],
+                nearbyAttractions: ["The Grand Palace", "Wat Arun"],
+                location: [13.7563, 100.5018],
+            },
+            {
+                id: 2,
+                name: "Sri Venkateswara Temple",
+                deity: "Vishnu",
+                address: "Tirumala, Andhra Pradesh, India",
+                imageUrls: [
+                    "https://via.placeholder.com/300",
+                    "https://via.placeholder.com/300",
+                ],
+                established: 300,
+                festivals: ["Brahmotsavam", "Vaikunta Ekadasi"],
+                timings: "2:30 AM - 1:30 AM (next day)",
+                specialRituals: "Suprabhatam, Thomala, Archana",
+                architecture: "Dravidian architectural style",
+                dressCode: "Traditional Indian wear required",
+                facilities: [
+                    "Accommodation",
+                    "Free Meals",
+                    "Parking",
+                    "Restrooms",
+                ],
+                nearbyAttractions: ["Akasa Ganga", "Silathoranam"],
+                location: [13.6833, 79.35],
+            },
+            {
+                id: 3,
+                name: "Pura Ulun Danu Bratan",
+                deity: "Shiva",
+                address: "Bali, Indonesia",
+                imageUrls: [
+                    "https://via.placeholder.com/300",
+                    "https://via.placeholder.com/300",
+                ],
+                established: 1633,
+                festivals: ["Saraswati", "Pagerwesi"],
+                timings: "Monday to Sunday: 7 AM - 7 PM",
+                specialRituals: "Melasti Ritual",
+                architecture: "Balinese architectural style",
+                dressCode: "Casual, Respectful attire required",
+                facilities: ["Boat Rides", "Parking", "Restrooms"],
+                nearbyAttractions: ["Botanical Gardens", "Bedugul Market"],
+                location: [-8.2753, 115.1668],
+            },
+            {
+                id: 4,
+                name: "Kinkaku-ji",
+                deity: "Avalokitesvara",
+                address: "Kyoto, Japan",
+                imageUrls: [
+                    "https://via.placeholder.com/300",
+                    "https://via.placeholder.com/300",
+                ],
+                established: 1397,
+                festivals: ["Golden Pavilion"],
+                timings: "Monday to Sunday: 9 AM - 5 PM",
+                specialRituals: "Zen Meditation",
+                architecture: "Japanese architectural style",
+                dressCode: "Casual",
+                facilities: ["Tea Gardens", "Parking", "Restrooms"],
+                nearbyAttractions: ["Ryoan-ji", "Ninnaji"],
+                location: [35.0394, 135.7292],
+            },
+            {
+                id: 5,
+                name: "Temple of Heaven",
+                deity: "Heaven Worship",
+                address: "Beijing, China",
+                imageUrls: [
+                    "https://via.placeholder.com/300",
+                    "https://via.placeholder.com/300",
+                ],
+                established: 1420,
+                festivals: ["Chinese New Year"],
+                timings: "Monday to Sunday: 6 AM - 8 PM",
+                specialRituals: "Prayer for Good Harvest",
+                architecture: "Chinese architectural style",
+                dressCode: "Casual",
+                facilities: ["Guided Tours", "Parking", "Restrooms"],
+                nearbyAttractions: ["Tiananmen Square", "Forbidden City"],
+                location: [39.8822, 116.4066],
+            },
         ];
+
         dispatch({ type: "FETCH_TEMPLES", payload: temples });
-    }, 2000);
+    }, 1000);
 };
