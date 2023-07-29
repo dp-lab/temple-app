@@ -19,6 +19,10 @@ export const fetchTemples = () => (dispatch) => {
                 facilities: ["Free Guided Tours", "Parking", "Restrooms"],
                 nearbyAttractions: ["The Grand Palace", "Wat Arun"],
                 location: [13.7563, 100.5018],
+                entryFee: 50,
+                rules: "No photography inside the temple",
+                contact: "contact@templeofdawn.com",
+                donationOptions: ["General Donation", "Offerings"],
             },
             {
                 id: 2,
@@ -43,6 +47,10 @@ export const fetchTemples = () => (dispatch) => {
                 ],
                 nearbyAttractions: ["Akasa Ganga", "Silathoranam"],
                 location: [13.6833, 79.35],
+                entryFee: 100,
+                rules: "No cell phones allowed inside the temple premises",
+                contact: "info@tirumala-temple.org",
+                donationOptions: ["Annadanam", "Vastra Samarpana"],
             },
             {
                 id: 3,
@@ -62,6 +70,10 @@ export const fetchTemples = () => (dispatch) => {
                 facilities: ["Boat Rides", "Parking", "Restrooms"],
                 nearbyAttractions: ["Botanical Gardens", "Bedugul Market"],
                 location: [-8.2753, 115.1668],
+                entryFee: 30,
+                rules: "No smoking allowed within the temple complex",
+                contact: "contact@ulundanu-bali.com",
+                donationOptions: ["Renovation Fund", "Offerings to Deities"],
             },
             {
                 id: 4,
@@ -81,6 +93,10 @@ export const fetchTemples = () => (dispatch) => {
                 facilities: ["Tea Gardens", "Parking", "Restrooms"],
                 nearbyAttractions: ["Ryoan-ji", "Ninnaji"],
                 location: [35.0394, 135.7292],
+                entryFee: 500,
+                rules: "Pets are not allowed inside the temple premises",
+                contact: "info@kinkakuji-kyoto.jp",
+                donationOptions: ["Preservation Fund", "Temple Maintenance"],
             },
             {
                 id: 5,
@@ -100,6 +116,10 @@ export const fetchTemples = () => (dispatch) => {
                 facilities: ["Guided Tours", "Parking", "Restrooms"],
                 nearbyAttractions: ["Tiananmen Square", "Forbidden City"],
                 location: [39.8822, 116.4066],
+                entryFee: 80,
+                rules: "No food or beverages inside the main temple hall",
+                contact: "info@templeofheaven.cn",
+                donationOptions: ["Charity Fund", "Temple Renovation"],
             },
         ];
 

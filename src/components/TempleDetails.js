@@ -2,6 +2,8 @@ import React from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import "./TempleDetails.css";
 import ImageCarousel from "./ImageCarousel";
+import VisitorInformation from "./VisitorInformation";
+import DonationOptions from "./DonationOptions";
 
 const TempleDetails = ({ temple }) => {
     return (
@@ -48,6 +50,14 @@ const TempleDetails = ({ temple }) => {
                         <strong>Nearby Attractions:</strong>{" "}
                         {temple.nearbyAttractions.join(", ")}
                     </ListGroup.Item>
+                    {/* Visitor Information */}
+                    <VisitorInformation
+                        entryFee={temple.entryFee}
+                        rules={temple.rules}
+                        contact={temple.contact}
+                    />
+                    {/* Donation Options */}
+                    <DonationOptions donationOptions={temple.donationOptions} />
                 </ListGroup>
             </div>
         </Card>
